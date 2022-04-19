@@ -13,9 +13,10 @@ RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt install -y python3.8 python3-pip python3.8-dev
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
-RUN pip3 install torch torchvision torchaudio \
-  --extra-index-url https://download.pytorch.org/whl/cu113
-RUN pip3 install numpy tqdm sklearn pandas matplotlab
+RUN pip3 install --no-cache-dir --upgrade pip && \
+    pip3 install --no-cache-dir pillow numpy sklearn matplotlib tqdm pandas
+RUN pip3 install --no-cache-dir torch torchvision torchaudio \
+    --extra-index-url https://download.pytorch.org/whl/cu113
 # Change password to Ml112358
 RUN mkdir /var/run/sshd && echo 'root:Ml112358' |chpasswd
 # Allow root login with password
