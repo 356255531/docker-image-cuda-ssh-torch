@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y\
   openssh-server \
   xdm \
   libgtk2.0-0 \
-  git
+  git \
+  screen
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt install -y python3.8 python3-pip python3.8-dev
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
