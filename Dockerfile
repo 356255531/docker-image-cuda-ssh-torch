@@ -1,5 +1,5 @@
 # Configuration: UBUNTU 18.04, CUDA 10.2, PYTHON3.8, SSH-server
-FROM nvidia/cuda:11.4.0-devel-ubuntu18.04
+FROM nvidia/cuda:10.2-devel-ubuntu18.04
 MAINTAINER Zhiwei Han <han@fortiss.org>
 
 # Install OpenSSH, X server and libgtk (for NVIDIA Visual Profiler)
@@ -17,8 +17,7 @@ RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 2
 RUN pip3 install --no-cache-dir --upgrade pip && \
     pip3 install --no-cache-dir pillow numpy sklearn matplotlib tqdm pandas
-RUN pip3 install --no-cache-dir torch torchvision torchaudio \
-    --extra-index-url https://download.pytorch.org/whl/cu113
+RUN pip3 install --no-cache-dir torch torchvision torchaudio
 # Change password to Ml112358
 RUN mkdir /var/run/sshd && echo 'root:Ml112358' |chpasswd
 # Allow root login with password
