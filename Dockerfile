@@ -1,4 +1,4 @@
-# Configuration: UBUNTU 18.04, CUDA 10.2, PYTHON3.8, SSH-server
+# Configuration: UBUNTU 18.04, CUDA 11.4, PYTHON3.8, SSH-server
 FROM nvidia/cuda:11.4.0-devel-ubuntu18.04
 MAINTAINER Zhiwei Han <han@fortiss.org>
 
